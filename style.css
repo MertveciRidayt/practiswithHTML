@@ -1,0 +1,664 @@
+
+/* ===== ОСНОВА ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ffb8d0;
+    --soft-pink: #ffe0eb;
+    --lavender: #d8c7ff;
+    --dark-purple: #21172f;
+    --night: #171225;
+    --text: #51405c;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+.home-page {
+    overflow: hidden;
+}
+
+.split-screen {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* ===== СПІЛЬНЕ ДЛЯ ОБОХ ПОЛОВИН ===== */
+
+.half {
+    position: relative;
+    width: 50%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.light-side,
+.dark-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== ЛІВА ПОЛОВИНА: ВЕСНА ===== */
+
+.light-side {
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 15% 15%,
+            rgba(255, 255, 255, 0.9), transparent 27%),
+        linear-gradient(155deg,
+            #fff0c9 0%,
+            #e4f6d6 43%,
+            #c6e8c1 100%);
+}
+
+.spring-content {
+    position: relative;
+    z-index: 3;
+    width: min(82%, 460px);
+    padding: 35px 0 75px;
+    text-align: center;
+    animation: appear 1s ease both;
+}
+
+.spring-flowers {
+    margin-bottom: 24px;
+    font-size: clamp(32px, 4vw, 54px);
+    letter-spacing: 5px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.eyebrow {
+    margin: 0 0 14px;
+    color: #8a9d75;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.spring-content h1 {
+    margin: 0;
+    font-size: clamp(27px, 3.5vw, 47px);
+    line-height: 1.22;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.spring-content h1 span {
+    display: block;
+    margin-top: 9px;
+    color: #df7c9e;
+}
+
+.spring-description {
+    max-width: 340px;
+    margin: 22px auto;
+    color: #716c73;
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.7;
+}
+
+.cute-note {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.57);
+    box-shadow: 0 8px 25px rgba(102, 130, 90, 0.08);
+    font-size: 13px;
+}
+
+.cute-note span {
+    color: #df7c9e;
+    margin-right: 5px;
+}
+
+/* Сонце та хмаринки */
+
+.sun {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    width: 90px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #ffe6a0;
+    box-shadow: 0 0 55px rgba(255, 223, 139, 0.6);
+}
+
+.cloud {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: clamp(65px, 9vw, 115px);
+    line-height: 1;
+    user-select: none;
+}
+
+.cloud-one {
+    top: 11%;
+    left: 5%;
+}
+
+.cloud-two {
+    top: 26%;
+    right: -3%;
+    font-size: clamp(55px, 7vw, 90px);
+    opacity: 0.65;
+}
+
+/* Трава */
+
+.grass {
+    position: absolute;
+    z-index: 1;
+    right: -10%;
+    bottom: -65px;
+    left: -10%;
+    height: 155px;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(180deg, #a8d69c, #78b77c);
+    transform: rotate(-3deg);
+}
+
+.flower {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    font-size: clamp(25px, 3.5vw, 43px);
+    filter: drop-shadow(0 4px 2px rgba(70, 100, 55, 0.12));
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.flower-one {
+    left: 8%;
+    bottom: 43px;
+}
+
+.flower-two {
+    left: 27%;
+    bottom: 18px;
+    animation-delay: -1s;
+}
+
+.flower-three {
+    right: 28%;
+    bottom: 42px;
+    animation-delay: -2s;
+}
+
+.flower-four {
+    right: 8%;
+    bottom: 18px;
+    animation-delay: -0.5s;
+}
+
+.flower-five {
+    left: 47%;
+    bottom: 68px;
+    font-size: 27px;
+    animation-delay: -1.7s;
+}
+
+/* ===== ПРАВА ПОЛОВИНА: ТЕМНА КАЗКА ===== */
+
+.dark-side {
+    color: #fff0f7;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+            rgba(92, 61, 121, 0.38), transparent 53%),
+        linear-gradient(155deg, #30213f, #191426 78%);
+}
+
+.dark-content {
+    position: relative;
+    z-index: 3;
+    width: min(82%, 420px);
+    padding: 35px 0 105px;
+    text-align: center;
+    animation: appear 1s ease both;
+}
+
+.moon {
+    position: absolute;
+    top: 8%;
+    right: 12%;
+    color: #f6e5c0;
+    font-size: 80px;
+    transform: rotate(-20deg);
+    filter: drop-shadow(0 0 20px rgba(246, 229, 192, 0.2));
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: #f7dfbb;
+}
+
+.stars span {
+    position: absolute;
+    font-size: 24px;
+    animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.stars span:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.stars span:nth-child(2) {
+    top: 27%;
+    left: 74%;
+    animation-delay: -1s;
+}
+
+.stars span:nth-child(3) {
+    top: 42%;
+    left: 10%;
+    animation-delay: -0.7s;
+}
+
+.stars span:nth-child(4) {
+    top: 35%;
+    left: 88%;
+    font-size: 34px;
+}
+
+.stars span:nth-child(5) {
+    top: 63%;
+    left: 15%;
+    animation-delay: -1.5s;
+}
+
+.stars span:nth-child(6) {
+    top: 73%;
+    left: 83%;
+}
+
+.stars span:nth-child(7) {
+    top: 18%;
+    left: 48%;
+    font-size: 34px;
+}
+
+.stars span:nth-child(8) {
+    top: 53%;
+    left: 91%;
+    animation-delay: -0.5s;
+}
+
+.dark-illustration {
+    margin-bottom: 20px;
+    font-size: clamp(48px, 6vw, 75px);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.dark-eyebrow {
+    margin: 0 0 12px;
+    color: #c9b0e8;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dark-content h2 {
+    margin: 0;
+    font-size: clamp(25px, 3vw, 39px);
+    line-height: 1.25;
+}
+
+.dark-description {
+    margin: 16px auto;
+    color: #c5b9d1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.button-hint {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #d3c4e0;
+    font-size: 12px;
+}
+
+/* Пагорб на темній стороні */
+
+.dark-hill {
+    position: absolute;
+    z-index: 1;
+    right: -15%;
+    bottom: -90px;
+    left: -15%;
+    height: 175px;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(180deg, #352641, #241b31);
+    transform: rotate(4deg);
+}
+
+/* ===== КНОПКИ ===== */
+
+.answer-button {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    min-height: 49px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.yes-button {
+    bottom: 10%;
+    left: 50%;
+    color: #69405d;
+    background: linear-gradient(135deg, #ffd0e2, #f5a9ce);
+    box-shadow: 0 8px 25px rgba(255, 160, 205, 0.22);
+    transform: translateX(-50%);
+}
+
+.yes-button:hover {
+    background: #ffe2ed;
+    box-shadow: 0 10px 32px rgba(255, 160, 205, 0.4);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+.no-button {
+    top: 65%;
+    left: 50%;
+    color: #fff0f7;
+    background: linear-gradient(135deg, #756184, #594568);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    touch-action: manipulation;
+}
+
+.no-button:hover {
+    background: #846b97;
+}
+
+/* ===== ДРУГА СТОРІНКА ===== */
+
+.thanks-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    color: #79516c;
+    background:
+        radial-gradient(ellipse at 15% 20%,
+            rgba(255, 255, 255, 0.9), transparent 28%),
+        radial-gradient(ellipse at 85% 85%,
+            rgba(255, 192, 221, 0.7), transparent 35%),
+        linear-gradient(145deg, #fff0f6, #f8d9ee 52%, #e8ddff);
+}
+
+.thanks-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 30px 20px;
+}
+
+.thanks-card {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 560px);
+    padding: clamp(30px, 6vw, 60px);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 35px;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 25px 80px rgba(174, 115, 160, 0.15);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: appear 0.8s ease both;
+}
+
+.thanks-icon {
+    margin-bottom: 20px;
+    font-size: clamp(55px, 8vw, 85px);
+    animation: float 3s ease-in-out infinite;
+}
+
+.thanks-label {
+    margin: 0 0 12px;
+    color: #b77b9e;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.thanks-card h1 {
+    margin: 0;
+    color: #b45f91;
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 1.15;
+}
+
+.thanks-card p {
+    margin: 20px auto;
+    max-width: 380px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.thanks-decoration {
+    margin: 22px 0;
+    font-size: 28px;
+    letter-spacing: 8px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 13px 22px;
+    border-radius: 16px;
+    color: white;
+    background: linear-gradient(135deg, #d995bb, #b98cda);
+    box-shadow: 0 8px 20px rgba(185, 140, 218, 0.2);
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+}
+
+.floating-heart {
+    position: absolute;
+    z-index: 1;
+    color: rgba(208, 124, 174, 0.48);
+    font-size: clamp(25px, 4vw, 45px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.heart-one {
+    top: 13%;
+    left: 12%;
+}
+
+.heart-two {
+    top: 20%;
+    right: 14%;
+    animation-delay: -1.2s;
+}
+
+.heart-three {
+    bottom: 14%;
+    left: 18%;
+    animation-delay: -2s;
+}
+
+.heart-four {
+    right: 11%;
+    bottom: 13%;
+    animation-delay: -0.6s;
+}
+
+/* ===== АНІМАЦІЇ ===== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.45;
+        scale: 0.9;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.15;
+    }
+}
+
+/* ===== ТЕЛЕФОНИ ===== */
+
+@media (max-width: 700px) {
+    .home-page {
+        overflow: auto;
+    }
+
+    .split-screen {
+        flex-direction: column;
+    }
+
+    .half {
+        width: 100%;
+        min-height: 50vh;
+        min-height: 50svh;
+    }
+
+    .light-side {
+        min-height: 54svh;
+    }
+
+    .dark-side {
+        min-height: 64svh;
+    }
+
+    .spring-content {
+        width: 86%;
+        padding-top: 45px;
+        padding-bottom: 80px;
+    }
+
+    .spring-content h1 {
+        font-size: clamp(28px, 7vw, 40px);
+    }
+
+    .spring-description {
+        font-size: 14px;
+    }
+
+    .cloud-one {
+        top: 5%;
+    }
+
+    .cloud-two {
+        top: 17%;
+    }
+
+    .sun {
+        width: 65px;
+        top: 5%;
+        right: 7%;
+    }
+
+    .dark-content {
+        width: 86%;
+        padding-top: 35px;
+        padding-bottom: 100px;
+    }
+
+    .dark-content h2 {
+        font-size: clamp(27px, 7vw, 36px);
+    }
+
+    .moon {
+        top: 4%;
+        right: 8%;
+        font-size: 58px;
+    }
+
+    .yes-button {
+        bottom: 8%;
+    }
+
+    .thanks-card {
+        border-radius: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
