@@ -662,3 +662,32 @@ a {
         scroll-behavior: auto !important;
     }
 }
+/* Оформление второй страницы */
+body:has(h1):not(:has(#darkSide)) {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0ef, #ffc2df, #fff0f7);
+    font-family: "Segoe UI", sans-serif;
+}
+
+body:has(h1):not(:has(#darkSide)) h1 {
+    color: #d94f91;
+    font-size: clamp(28px, 5vw, 52px);
+    text-align: center;
+    padding: 30px;
+    animation: appear 1s ease-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
